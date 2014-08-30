@@ -27,7 +27,7 @@ rrLabel = 0
 rrMax = 0
 
 #increase this value to extend slip indicator range (max_slip is red 0 is green)
-max_slip = 2100
+max_slip = 4100
 
 #colors
 white = [1, 1, 1]
