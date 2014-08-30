@@ -43,7 +43,8 @@ last_angles = [0, 0, 0, 0]
 time_angles_are_same = 0
 
 #confusing but this is just about one tyre described as a rectangle with of course four points (corners)
-rectangle_corners = ["FLC", "FRC", "RRC", "RLC"]
+#rectangle_corners = ["FLC", "FRC", "RRC", "RLC"]
+rectangle_corners = ["RLC", "RRC", "FRC", "FLC"]
 
 
 #ac calls this function the name cannot be changed or script will not work
@@ -73,8 +74,8 @@ def define_tachometer():
     global top_indicator, indicators, upperDistance, distanceFromLeft, tyreHeight, tyreWidth
     car_middle_x = (distanceFromLeft + distanceFromLeft + tyreWidth + tyreWidth + tyreWidth) / 2.0
     car_middle_y = (upperDistance + upperDistance + tyreHeight * 2 + tyreHeight) / 2
-    top_indicator = {"FLC": [car_middle_x - 1, upperDistance - 13], "FRC": [car_middle_x, upperDistance - 7],
-                     "RRC": [car_middle_x + 1, upperDistance - 13], "RLC": [car_middle_x, upperDistance - 19]}
+    top_indicator = {"RLC": [car_middle_x - 1, upperDistance - 13], "RRC": [car_middle_x, upperDistance - 7],
+                     "FRC": [car_middle_x + 1, upperDistance - 13], "FLC": [car_middle_x, upperDistance - 19]}
     for i in range(1, 10):
         indicators[-i * 10] = rotate_rectangle(car_middle_x, car_middle_y, -i * 10, top_indicator.copy())
         indicators[i * 10] = rotate_rectangle(car_middle_x, car_middle_y, i * 10, top_indicator.copy())
@@ -154,8 +155,8 @@ def on_update(deltaT):
                           [car_middle_x, upperDistance - 6]]
 
         #arrow showing desired steering direction
-        arrow_steering_head = [[car_middle_x - 6, upperDistance - 26], [car_middle_x + 6, upperDistance - 26],
-                               [car_middle_x, upperDistance - 20]]
+        arrow_steering_head = [[car_middle_x, upperDistance - 20], [car_middle_x + 6, upperDistance - 26],
+                               [car_middle_x - 6, upperDistance - 26]]
 
         draw_tachometer()
 
